@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <title>Documentation Viewer | Ana Cabrera</title>
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container header-container">
+    <h1>Ana Cabrera</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Projects</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container kb-inner-layout">
+  
+  <aside class="kb-article-sidebar">
+    <a href="index.html" class="back-to-portal">← Back to Portal</a>
+    <h3>All Documentation Samples</h3>
+    <nav class="kb-inner-nav">
+      
+      <span class="nav-group-title">Workflows</span>
+      <a href="#" class="nav-link active" data-target="export-to-revit.html">Autodesk Revit Export</a>
+      <a href="#" class="nav-link" data-target="bim360-sync.html">BIM 360 Cloud Sync</a>
+      
+      <span class="nav-group-title">Walkthroughs</span>
+      <a href="#" class="nav-link" data-target="conduit-routing.html">Electrical Routing Constraints</a>
+      <a href="#" class="nav-link" data-target="parametric-inputs.html">Parametric UI Inputs</a>
+      
+      <span class="nav-group-title">Troubleshooting</span>
+      <a href="#" class="nav-link" data-target="collision-errors.html">Geometry Collision Errors</a>
+      <a href="#" class="nav-link" data-target="schema-mismatch.html">Database Schema Mismatch</a>
+
+      <span class="nav-group-title">Onboarding</span>
+      <a href="#" class="nav-link" data-target="enterprise-setup.html">Enterprise Workspace Setup</a>
+      <a href="#" class="nav-link" data-target="cli-install.html">CLI Installation Parameters</a>
+
+      <span class="nav-group-title">Updates</span>
+      <a href="#" class="nav-link" data-target="may-2026-release.html">Mechanical System Update</a>
+
+      <span class="nav-group-title">Governance</span>
+      <a href="#" class="nav-link" data-target="style-guide.html">Internal Style Guide</a>
+    </nav>
+  </aside>
+
+  <main class="kb-article-content">
+    <article class="doc-body" id="doc-render-area">
+      <p>Loading documentation sample...</p>
+    </article>
+  </main>
+</div>
+
+<script>
+  const renderArea = document.getElementById('doc-render-area');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  async function loadArticle(fileName) {
+    try {
+      renderArea.innerHTML = '<p>Loading documentation sample...</p>';
+      
+      // Fetch the partial file from the content subfolder
+      const response = await fetch(`./content/${fileName}`);
+      if (!response.ok) throw new Error('File not found.');
+      
+      const contentHtml = await response.text();
+      renderArea.innerHTML = contentHtml;
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      renderArea.innerHTML = `<h2>Error Loading Document</h2><p>The sample content file <b>"${fileName}"</b> could not be fetched. Check that it exists inside your projects/content/ folder.</p>`;
+    }
+  }
+
+  // Handle Sidebar Interactivity
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      
+      const targetFile = link.getAttribute('data-target');
+      loadArticle(targetFile);
+      
+      // Sync browser address bar hash
+      window.location.hash = targetFile;
+    });
+  });
+
+  // Page Load Initializer
+  window.addEventListener('DOMContentLoaded', () => {
+    const currentHash = window.location.hash.replace('#', '');
+    if (currentHash) {
+      const matchingLink = document.querySelector(`[data-target="${currentHash}"]`);
+      if (matchingLink) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        matchingLink.classList.add('active');
+        loadArticle(currentHash);
+        return;
+      }
+    }
+    
+    // Default fallback to first active link
+    const defaultFile = document.querySelector('.nav-link.active').getAttribute('data-target');
+    loadArticle(defaultFile);
+  });
+</script>
+
+</body>
+</html>

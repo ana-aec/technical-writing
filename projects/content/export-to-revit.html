@@ -1,0 +1,16 @@
+<h1>Exporting Generative Spatial Designs into Autodesk Revit</h1>
+<p class="doc-meta">Category: Workflow Documentation • 4 min read</p>
+<hr>
+
+<p>This technical guide details coordinate transformation rules and programmatic conduit asset placement when exporting from our cloud engine into desktop BIM installations.</p>
+
+<h2>1. Coordinate Alignment Settings</h2>
+<p>Before launching the native conversion wizard, verify your orientation matches your master grid layout specification rules:</p>
+<ul>
+  <li>Confirm system origin coordinates map to absolute world scale.</li>
+  <li>Set parametric angle offsets to match structural geometry bounds.</li>
+</ul>
+
+<h2>2. Running the System Script</h2>
+<p>Open your command line interface and execute the compilation routine:</p>
+<pre>npm run export -- --target=revit3d --compress=true</pre>

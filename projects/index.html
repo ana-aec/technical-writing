@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <title>Ana Cabrera | Technical Writing Portfolio</title>
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container header-container">
+    <h1>Ana Cabrera</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Projects</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container portal-landing">
+  
+  <h2 class="portal-title">Technical Writing Portfolio</h2>
+
+  <div class="search-container">
+    <input type="text" id="docs-search" placeholder="Search documentation samples (e.g., Revit, API, integration)...">
+  </div>
+
+  <div class="portal-grid">
+    
+    <div class="portal-card">
+      <div class="portal-card-header">
+        <img src="../assets/icons/workflow.png" alt="" class="card-icon">
+        <h3>Workflow & Integrations</h3>
+      </div>
+      <ul class="sample-links">
+        <li><a href="viewer.html#export-to-revit.html">Exporting Generative Spatial Designs into Autodesk Revit</a></li>
+        <li><a href="viewer.html#bim360-sync.html">BIM 360 Cloud Workspace Syncing Environment</a></li>
+      </ul>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-card-header">
+        <img src="../assets/icons/feature.png" alt="" class="card-icon">
+        <h3>Feature Walkthroughs</h3>
+      </div>
+      <ul class="sample-links">
+        <li><a href="viewer.html#conduit-routing.html">Configuring Rule Constraints for Electrical Routing</a></li>
+        <li><a href="viewer.html#parametric-inputs.html">Parametric UI Inputs for Structural Layouts</a></li>
+      </ul>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-card-header">
+        <img src="../assets/icons/troubleshooting.png" alt="" class="card-icon">
+        <h3>Troubleshooting & Diagnostics</h3>
+      </div>
+      <ul class="sample-links">
+        <li><a href="viewer.html#collision-errors.html">Resolving Dense Geometry Export Collision Errors</a></li>
+        <li><a href="viewer.html#schema-mismatch.html">Fixing Database Schema Mismatches on Migration</a></li>
+      </ul>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-card-header">
+        <img src="../assets/icons/onboarding.png" alt="" class="card-icon">
+        <h3>Onboarding & Quick Start</h3>
+      </div>
+      <ul class="sample-links">
+        <li><a href="viewer.html#enterprise-setup.html">AEC Enterprise Workspace Administration Guide</a></li>
+        <li><a href="viewer.html#cli-install.html">CLI Installation Parameters for Engineering Teams</a></li>
+      </ul>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-card-header">
+        <img src="../assets/icons/proactive.png" alt="" class="card-icon">
+        <h3>Release Notes & Patches</h3>
+      </div>
+      <ul class="sample-links">
+        <li><a href="viewer.html#may-2026-release.html">Product Release Notes: Mechanical System Routing</a></li>
+      </ul>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-card-header">
+        <img src="../assets/icons/alignment.png" alt="" class="card-icon">
+        <h3>Style Guides & SOPs</h3>
+      </div>
+      <ul class="sample-links">
+        <li><a href="viewer.html#style-guide.html">Internal Knowledge Base Markdown Style Guide</a></li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  document.getElementById('docs-search').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.portal-card');
+
+    cards.forEach(card => {
+      // Grab all text inside the card header and all list items
+      const cardText = card.textContent.toLowerCase();
+      
+      // If the search term is found anywhere in the card, show it. Otherwise, hide it.
+      if (cardText.includes(searchTerm)) {
+        card.style.display = 'flex'; // Keeps your responsive card grid layout intact
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<footer>
+  <p>© 2026 Ana Cabrera</p>
+</footer>
+
+</body>
+</html>

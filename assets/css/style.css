@@ -58,6 +58,21 @@ header {
   background: #f8f9fb;
 }
 
+.hero-hook {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+  .hero-hook {
+    font-size: 2rem; /* Scales down smoothly so it doesn't clip on phones */
+    margin-bottom: 1rem;
+  }
+}
+
 /* CONTAINERS */
 
 .header-container {
@@ -646,5 +661,231 @@ footer {
   
   .project-card:hover {
     transform: translateY(-2px);
+  }
+}
+
+/* ==========================================================================
+   LINE 667: DOCS PORTAL HOVER LANDING PAGE SYSTEM
+   ========================================================================== */
+
+.portal-landing {
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.portal-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* SEARCH BAR PLATFORM */
+.search-container {
+  max-width: 650px;
+  margin: 0 auto 3.5rem auto;
+  padding: 0 1rem;
+}
+
+#docs-search {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  border: 1px solid #dce1e7;
+  border-radius: 8px;
+  background-color: white;
+  color: #1f2937;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+#docs-search:focus {
+  outline: none;
+  border-color: #0b5cab;
+  box-shadow: 0 0 0 3px rgba(11, 92, 171, 0.15);
+}
+
+/* THE 6-CARD GRID ARCHITECTURE */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.portal-card {
+  background: white;
+  border: 1px solid #dce1e7;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+  flex: 1 1 calc(33.333% - 1.5rem);
+  min-height: 200px;
+}
+
+.portal-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.portal-card-header h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* INTERIOR CARD CONTENT LINKS */
+.sample-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.sample-links li {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.sample-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+  transition: color 0.15s ease;
+}
+
+.sample-links a:hover {
+  color: #0b5cab;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   INNER ARTICLE VIEW LAYOUT (WITH ACTIVE LEFT SIDEBAR)
+   ========================================================================== */
+
+.kb-inner-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+  align-items: start;
+}
+
+.kb-article-sidebar {
+  position: sticky;
+  top: 3rem;
+  background: #f8f9fb;
+  padding-right: 1.5rem;
+}
+
+.back-to-portal {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0b5cab;
+  margin-bottom: 2rem;
+}
+
+.kb-article-sidebar h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.kb-inner-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-group-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.kb-inner-nav a {
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.kb-inner-nav a:hover,
+.kb-inner-nav a.active {
+  color: #0b5cab;
+  background: #eef2f6;
+  font-weight: 600;
+}
+
+/* INNER ARTICLE CONTENT BODY */
+.doc-body h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.doc-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.doc-body hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+/* RESPONSIVE DESIGN CONTROLS */
+@media (max-width: 992px) {
+  .portal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kb-inner-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .kb-article-sidebar {
+    position: relative;
+    top: 0;
+    padding-right: 0;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .portal-grid {
+    grid-template-columns: 1fr;
   }
 }
