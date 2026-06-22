@@ -36,8 +36,26 @@
     
     <div class="portal-card">
       <div class="portal-card-header">
+        <img src="../assets/icons/developer.png" alt="" class="card-icon">
+        <h3>
+          Developer Platform & <span class="no-wrap-context">SDKs
+            <span class="global-tooltip-trigger" data-title="Reference manuals, code parameter blocks, and class utilities engineered for software developers and integration teams.">ⓘ</span>
+          </span>
+        </h3>
+      </div>
+      <ul class="sample-links">
+        <li><a href="viewer.html#advantzware-api-reference.htm">Advantzware HTTP Class Utility SDK Reference</a></li>
+      </ul>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-card-header">
         <img src="../assets/icons/workflow.png" alt="" class="card-icon">
-        <h3>Workflow & Integrations</h3>
+        <h3>
+          BIM Workflows & <span class="no-wrap-context">Integrations
+            <span class="global-tooltip-trigger" data-title="Advanced configuration roadmaps detailing platform interoperability, spatial data generation, and cloud environment syncing.">ⓘ</span>
+          </span>
+        </h3>
       </div>
       <ul class="sample-links">
         <li><a href="viewer.html#export-to-revit.html">Exporting Generative Spatial Designs into Autodesk Revit</a></li>
@@ -48,7 +66,11 @@
     <div class="portal-card">
       <div class="portal-card-header">
         <img src="../assets/icons/feature.png" alt="" class="card-icon">
-        <h3>Feature Walkthroughs</h3>
+        <h3>
+          Core Feature <span class="no-wrap-context">Walkthroughs
+            <span class="global-tooltip-trigger" data-title="Task-oriented user guides outlining rule constraints, parametric inputs, and functional modeling workflows.">ⓘ</span>
+          </span>
+        </h3>
       </div>
       <ul class="sample-links">
         <li><a href="viewer.html#conduit-routing.html">Configuring Rule Constraints for Electrical Routing</a></li>
@@ -59,7 +81,11 @@
     <div class="portal-card">
       <div class="portal-card-header">
         <img src="../assets/icons/troubleshooting.png" alt="" class="card-icon">
-        <h3>Troubleshooting & Diagnostics</h3>
+        <h3>
+          Troubleshooting & <span class="no-wrap-context">Diagnostics
+            <span class="global-tooltip-trigger" data-title="Technical resolution paths for handling dense geometric collisions, system rendering log faults, and migration database mismatches.">ⓘ</span>
+          </span>
+        </h3>
       </div>
       <ul class="sample-links">
         <li><a href="viewer.html#collision-errors.html">Resolving Dense Geometry Export Collision Errors</a></li>
@@ -70,9 +96,14 @@
     <div class="portal-card">
       <div class="portal-card-header">
         <img src="../assets/icons/onboarding.png" alt="" class="card-icon">
-        <h3>Onboarding & Quick Start</h3>
+        <h3>
+          Onboarding & Quick <span class="no-wrap-context">Starts
+            <span class="global-tooltip-trigger" data-title="Multi-lane onboarding guides and CLI administration setups managed using structured, single-source information architecture.">ⓘ</span>
+          </span>
+        </h3>
       </div>
       <ul class="sample-links">
+        <li><a href="viewer.html#erp-one-intro.htm">ERP-ONE+ Ecosystem Multi-Lane Quick Start Guide</a></li>
         <li><a href="viewer.html#enterprise-setup.html">AEC Enterprise Workspace Administration Guide</a></li>
         <li><a href="viewer.html#cli-install.html">CLI Installation Parameters for Engineering Teams</a></li>
       </ul>
@@ -81,20 +112,17 @@
     <div class="portal-card">
       <div class="portal-card-header">
         <img src="../assets/icons/proactive.png" alt="" class="card-icon">
-        <h3>Release Notes & Patches</h3>
+        <h3>
+          Lifecycles, Releases & <span class="no-wrap-context">Governance
+            <span class="global-tooltip-trigger" data-title="Continuous product release notes and internal style documentation managing organizational standards across update sprints.">ⓘ</span>
+          </span>
+        </h3>
       </div>
       <ul class="sample-links">
-        <li><a href="viewer.html#rn-sample-1.htm">Product Release Notes: Resolved Issues and Minor Feature</a></li>
-      </ul>
-    </div>
-
-    <div class="portal-card">
-      <div class="portal-card-header">
-        <img src="../assets/icons/alignment.png" alt="" class="card-icon">
-        <h3>Style Guides & SOPs</h3>
-      </div>
-      <ul class="sample-links">
-        <li><a href="viewer.html#style-guide.html">Internal Knowledge Base Markdown Style Guide</a></li>
+        <li><a href="viewer.html#release-notes-ERP-distribution.htm">Release Notes: ERP & Distribution</a></li>
+        <li><a href="viewer.html#release-notes-corrugated-manufacturing.htm">Release Notes: Manufacturing</a></li>
+        <li><a href="viewer.html#article-template.htm">DITA Authoring Template</a></li>
+        <li><a href="viewer.html#style-guide-data-privacy.html">Style Guide - Data Privacy Section</a></li>
       </ul>
     </div>
 
@@ -102,22 +130,75 @@
 </main>
 
 <script>
-  document.getElementById('docs-search').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    const cards = document.querySelectorAll('.portal-card');
+// 1. Tooltip Functionality
+const globalTooltip = document.createElement('div');
+globalTooltip.className = 'global-floating-tooltip';
+document.body.appendChild(globalTooltip);
 
-    cards.forEach(card => {
-      // Grab all text inside the card header and all list items
-      const cardText = card.textContent.toLowerCase();
+document.querySelectorAll('.global-tooltip-trigger').forEach(trigger => {
+  trigger.addEventListener('mouseenter', function(e) {
+    globalTooltip.textContent = this.getAttribute('data-title');
+    globalTooltip.classList.add('visible');
+    const rect = this.getBoundingClientRect();
+    globalTooltip.style.top = `${rect.bottom + window.scrollY + 8}px`;
+    globalTooltip.style.left = `${rect.left + window.scrollX + (rect.width / 2)}px`;
+  });
+  trigger.addEventListener('mouseleave', () => globalTooltip.classList.remove('visible'));
+});
+
+// 2. Automated Search Indexing
+const docCache = {};
+
+document.querySelectorAll('.sample-links a').forEach(link => {
+  const filename = link.getAttribute('href').replace('viewer.html#', '');
+  const fetchUrl = `content/${filename}`; 
+  
+  fetch(fetchUrl)
+    .then(response => response.ok ? response.text() : null)
+    .then(html => {
+      if (html) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        docCache[filename] = tempDiv.textContent.toLowerCase();
+      }
+    })
+    .catch(err => console.warn("Could not index file at:", fetchUrl));
+});
+
+// 3. Granular Filtering Logic
+document.getElementById('docs-search').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  
+  document.querySelectorAll('.portal-card').forEach(card => {
+    const cardHeader = card.querySelector('.portal-card-header').textContent.toLowerCase();
+    const listItems = card.querySelectorAll('.sample-links li');
+    let hasVisibleMatch = false;
+
+    listItems.forEach(li => {
+      const link = li.querySelector('a');
+      const filename = link.getAttribute('href').replace('viewer.html#', '');
+      const linkText = li.textContent.toLowerCase();
       
-      // If the search term is found anywhere in the card, show it. Otherwise, hide it.
-      if (cardText.includes(searchTerm)) {
-        card.style.display = 'flex'; // Keeps your responsive card grid layout intact
+      // Match logic: Link Title OR Content of the linked file
+      const isMatch = linkText.includes(searchTerm) || 
+                      (docCache[filename] && docCache[filename].includes(searchTerm));
+
+      if (isMatch) {
+        li.style.display = 'block';
+        hasVisibleMatch = true;
       } else {
-        card.style.display = 'none';
+        li.style.display = 'none';
       }
     });
+
+    // Show card if header matches OR if at least one link matched
+    if (cardHeader.includes(searchTerm) || hasVisibleMatch) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
   });
+});
 </script>
 
 <footer>

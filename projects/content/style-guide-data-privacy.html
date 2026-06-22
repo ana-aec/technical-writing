@@ -1,0 +1,77 @@
+<h1>Data Privacy Style Guide</h1>
+
+<div class="doc-meta-grid">
+  <div class="meta-item">
+    <span class="meta-label">Category:</span>
+    <span class="meta-value">Content Strategy & Compliance</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Cycle:</span>
+    <span class="meta-value">Continuous Governance</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Deployment:</span>
+    <span class="meta-value">Global Enterprise</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Architecture:</span>
+    <span class="meta-value">Structured Style Guide</span>
+  </div>
+</div>
+
+<details open class="project-intro-accordion">
+    <summary>
+        <h2>Project Overview</h2>
+        <span class="accordion-toggle-icon"></span>
+    </summary>
+    <div class="accordion-content">
+        <p>Legal and security requirements are often the biggest bottlenecks in release cycles. I developed this guide to act as an "Editorial Shield," empowering writers to make compliant decisions in real-time. By defining explicit data classification rules and standardization for redaction, I reduced the need for legal and security team intervention during documentation reviews by approximately 50%.</p>
+        
+        <h3>CORE RESPONSIBILITIES</h3>
+        <ul>
+            <li>Compliance framework and policy authorship</li>
+            <li>Development of redaction standard operating procedures (SOPs)</li>
+            <li>Cross-departmental stakeholder advocacy (Legal & Security)</li>
+            <li>Information classification taxonomy design</li>
+        </ul>
+
+        <h3>TECHNOLOGY STACK</h3>
+        <p>MadCap Capture • Salesforce Knowledge • Azure DevOps • GDPR/ISO Compliance Standards</p>
+    </div>
+</details>
+<span class="portfolio-callout">This excerpt focuses on the privacy and redaction standards from our broader technical documentation Style Guide. It is presented here to illustrate my approach to enforcing security protocols across distributed authoring teams.</span>
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;font-size: 20pt;padding: 0px 0px 1px 0px;margin: 12pt 0pt 0pt 0pt;">Editorial Philosophy</h1>
+<p style="font-size: 11pt; margin: 6pt 0pt;">As a company with a global client base, we operate under strict regulatory requirements, including GDPR. This guide serves to protect our customers' confidentiality and our firm's intellectual property by enforcing a "Privacy by Design" approach to technical documentation.</p>
+
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">Data Classification Categories</h2>
+<p style="font-size: 11pt; margin: 6pt 0pt;">Technical authors must proactively scrub the following identifiers from all public-facing knowledge base articles, PDFs, and in-app content:</p>
+
+<table style="border-collapse: collapse; width: 100%; margin: 15px 0;" class="TableStyle-Definitions">
+    <thead>
+        <tr style="background-color: #f1f5f9; text-align: left;">
+            <th style="border: 1px solid #cbd5e1; padding: 8px;">Category</th>
+            <th style="border: 1px solid #cbd5e1; padding: 8px;">Restricted Examples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #cbd5e1; padding: 8px; font-weight: bold;">Corporate</td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;">Registration numbers, office addresses, trade secrets, financial data, and IP addresses.</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #cbd5e1; padding: 8px; font-weight: bold;">Individual</td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;">Full names, government ID numbers, biometric/medical data, and sensitive demographics (race, religion, etc.).</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">Standardized Redaction</h2>
+<p style="font-size: 11pt; margin: 6pt 0pt;">To maintain visual consistency across our global documentation, all media files must adhere to the following redaction standards in <b>MadCap Capture</b>:</p>
+
+<table style="border-collapse: collapse; background-color: #e5f4ff; border-left: 3px solid #1fa1ff; margin: 15px 0; width: 100%;" class="TableStyle-NoteTable">
+    <tr>
+        <td style="padding: 10px;">
+            <b>Blur Properties:</b> <code>Type: Blur-Inside</code> | <code>Blur Factor: 20</code> | <code>Background Transparency: 0%</code>
+        </td>
+    </tr>
+</table>

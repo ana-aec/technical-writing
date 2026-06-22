@@ -10,6 +10,40 @@
   <title>Documentation Viewer | Ana Cabrera</title>
   
   <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* Inline styles specifically covering structural text alignments within the viewer framework */
+    .accordion-download-zone {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed #cbd5e1;
+    }
+    .download-notice-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      background-color: #0250ae;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.15s ease;
+    }
+    .btn-download:hover {
+      background-color: #01316b;
+    }
+    .btn-download svg {
+      flex-shrink: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -31,27 +65,31 @@
     <h3>All Documentation Samples</h3>
     <nav class="kb-inner-nav">
       
-      <span class="nav-group-title">Workflows</span>
-      <a href="#" class="nav-link active" data-target="export-to-revit.html">Autodesk Revit Export</a>
-      <a href="#" class="nav-link" data-target="bim360-sync.html">BIM 360 Cloud Sync</a>
+      <span class="nav-group-title">Developer Platform &amp; SDKs</span>
+      <a href="#" class="nav-link active" data-target="advantzware-api-reference.htm">Advantzware Class Utility SDK</a>
       
-      <span class="nav-group-title">Walkthroughs</span>
+      <span class="nav-group-title">BIM Workflows &amp; Integrations</span>
+      <a href="#" class="nav-link" data-target="export-to-revit.html">Exporting Designs into Revit</a>
+      <a href="#" class="nav-link" data-target="bim360-sync.html">BIM 360 Workspace Syncing</a>
+      
+      <span class="nav-group-title">Core Feature Walkthroughs</span>
       <a href="#" class="nav-link" data-target="conduit-routing.html">Electrical Routing Constraints</a>
-      <a href="#" class="nav-link" data-target="parametric-inputs.html">Parametric UI Inputs</a>
+      <a href="#" class="nav-link" data-target="parametric-inputs.html">Parametric UI Layout Inputs</a>
       
-      <span class="nav-group-title">Troubleshooting</span>
-      <a href="#" class="nav-link" data-target="collision-errors.html">Geometry Collision Errors</a>
-      <a href="#" class="nav-link" data-target="schema-mismatch.html">Database Schema Mismatch</a>
+      <span class="nav-group-title">Troubleshooting &amp; Diagnostics</span>
+      <a href="#" class="nav-link" data-target="collision-errors.html">Resolving Geometry Collisions</a>
+      <a href="#" class="nav-link" data-target="schema-mismatch.html">Fixing Database Schema Mismatches</a>
 
-      <span class="nav-group-title">Onboarding</span>
-      <a href="#" class="nav-link" data-target="enterprise-setup.html">Enterprise Workspace Setup</a>
-      <a href="#" class="nav-link" data-target="cli-install.html">CLI Installation Parameters</a>
+      <span class="nav-group-title">Onboarding &amp; Quick Starts</span>
+      <a href="#" class="nav-link" data-target="erp-one-intro.htm">ERP-ONE+ Multi-Lane Quick Start</a>
+      <a href="#" class="nav-link" data-target="enterprise-setup.html">AEC Enterprise Administration</a>
+      <a href="#" class="nav-link" data-target="cli-install.html">CLI Engineering Parameters</a>
 
-      <span class="nav-group-title">Updates</span>
-      <a href="#" class="nav-link" data-target="rn-sample-1.htm">Product Release Notes: Resolved Issues and Minor Feature</a>
-
-      <span class="nav-group-title">Governance</span>
-      <a href="#" class="nav-link" data-target="style-guide.html">Internal Style Guide</a>
+      <span class="nav-group-title">Lifecycles, Releases &amp; Governance</span>
+      <a href="#" class="nav-link" data-target="release-notes-ERP-distribution.htm">ERP &amp; Distribution Release Notes</a>
+      <a href="#" class="nav-link" data-target="release-notes-corrugated-manufacturing.htm">Corrugated Box Release Notes</a>
+      <a href="#" class="nav-link" data-target="article-template.htm">DITA Release Template</a>
+      <a href="#" class="nav-link" data-target="style-guide-data-privacy.html">Style Guide - Data Privacy Section</a>
     </nav>
   </aside>
 
@@ -62,20 +100,60 @@
   </main>
 </div>
 
+<div id="download-modal" class="modal-overlay" aria-hidden="true">
+  
+  <div id="modal-form-card" class="modal-card">
+    <h2>Request Template Download</h2>
+    <p>To protect the formatting structural integrity, the source MS Word framework file is shared directly via email link. Enter your email below to get access!</p>
+    
+    <form action="https://formsubmit.co/ana@aectechdocs.com" method="POST" id="download-request-form">
+      <input type="hidden" name="_next" value="javascript:void(0);">
+      <input type="hidden" name="_captcha" value="false">
+      
+      <div class="form-group">
+        <label for="visitor-email">Your Email Address</label>
+        <input type="email" id="visitor-email" name="email" placeholder="recruiter@company.com" required>
+      </div>
+      
+      <div class="modal-actions-row">
+        <button type="button" id="cancel-modal-btn" class="btn-modal-cancel">Cancel</button>
+        <button type="submit" class="btn-modal-submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="modal-success-card" class="modal-card" style="display: none;">
+    <h2>Request Sent Successfully</h2>
+    <p>Thank you for your interest! Your file request has been securely processed. Please monitor your inbox—I will review it and follow up with you shortly.</p>
+    <div class="modal-actions-row">
+      <button type="button" id="success-close-btn" class="btn-modal-submit">Close</button>
+    </div>
+  </div>
+
+</div>
+
 <script>
+  // Global DOM reference nodes
   const renderArea = document.getElementById('doc-render-area');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  /**
+   * 1. CORE CONTENT LOADING ENGINE
+   * Fetches article content fragments from the server dynamically
+   */
   async function loadArticle(fileName) {
     try {
       renderArea.innerHTML = '<p>Loading documentation sample...</p>';
       
-      // Fetch the partial file from the content subfolder
       const response = await fetch(`./content/${fileName}`);
       if (!response.ok) throw new Error('File not found.');
       
       const contentHtml = await response.text();
-      renderArea.innerHTML = contentHtml;
+      renderArea.innerHTML = contentHtml; // Safely injects the pure HTML content
+      
+      // Fallback Engine: Configures standard files to link directly to the downloads folder
+      // (Ignored by article-template.htm since it uses the inline onclick handler)
+      bindFallbackDownloadLinks(fileName);
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
@@ -83,7 +161,98 @@
     }
   }
 
-  // Handle Sidebar Interactivity
+  /**
+   * 2. FALLBACK DOWNLOAD MAPPER
+   * If a standard article uses an inline download link, this routes it to its matching .docx file
+   */
+  function bindFallbackDownloadLinks(fileName) {
+    if (fileName === 'article-template.htm') return; // Skip entirely for the custom template modal
+    
+    const inlineBtn = document.getElementById('inline-download-btn');
+    if (inlineBtn) {
+      const baseName = fileName.substring(0, fileName.lastIndexOf('.'));
+      inlineBtn.setAttribute('href', `./downloads/${baseName}.docx`);
+    }
+  }
+
+  /**
+   * 3. INTERACTIVE TEMPLATE REQUEST MODAL HANDLER
+   * Triggered directly by the inline onclick="openDownloadModal(event)" attribute inside article-template.htm
+   */
+  function openDownloadModal(event) {
+    // STOPS the URL from changing or resetting to '#'
+    event.preventDefault(); 
+    event.stopPropagation();
+
+    const modal = document.getElementById('download-modal');
+    const formCard = document.getElementById('modal-form-card');
+    const successCard = document.getElementById('modal-success-card');
+    const cancelBtn = document.getElementById('cancel-modal-btn');
+    const successCloseBtn = document.getElementById('success-close-btn');
+    const requestForm = document.getElementById('download-request-form');
+
+    // Verify the modal wrapper exists in the HTML
+    if (!modal) {
+      console.error("The element #download-modal was not found in viewer.html");
+      return;
+    }
+
+    // Reset view cards to default layout states
+    formCard.style.display = 'block';
+    successCard.style.display = 'none';
+    
+    // Make the modal appear on screen
+    modal.classList.add('is-active');
+    modal.setAttribute('aria-hidden', 'false');
+
+    // Handle Cancel button click
+    cancelBtn.onclick = (e) => {
+      e.preventDefault();
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+      requestForm.reset();
+    };
+
+    // Handle Close button click on the success screen
+    successCloseBtn.onclick = (e) => {
+      e.preventDefault();
+      modal.classList.remove('is-active');
+      modal.setAttribute('aria-hidden', 'true');
+    };
+
+    // Handle Form Submission via Background Email Payload
+    requestForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const submitButton = requestForm.querySelector('.btn-modal-submit');
+      submitButton.textContent = "Sending...";
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch(requestForm.action, {
+          method: 'POST',
+          body: new FormData(requestForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formCard.style.display = 'none';
+          successCard.style.display = 'block';
+          requestForm.reset();
+        } else {
+          throw new Error('Payload error');
+        }
+      } catch (err) {
+        alert("There was an issue sending your request. Please try again or use the Contact page.");
+      } finally {
+        submitButton.textContent = "Submit";
+        submitButton.disabled = false;
+      }
+    };
+  }
+
+  /**
+   * 4. SIDEBAR NAVIGATION CLICK ATTACHMENTS
+   */
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -94,27 +263,40 @@
       const targetFile = link.getAttribute('data-target');
       loadArticle(targetFile);
       
-      // Sync browser address bar hash
       window.location.hash = targetFile;
     });
   });
 
-  // Page Load Initializer
-  window.addEventListener('DOMContentLoaded', () => {
+  /**
+   * 5. BROWSER HISTORY ROUTER (Handles direct link shares and page reloads)
+   */
+  function routeByHash() {
     const currentHash = window.location.hash.replace('#', '');
+    
     if (currentHash) {
       const matchingLink = document.querySelector(`[data-target="${currentHash}"]`);
       if (matchingLink) {
         navLinks.forEach(l => l.classList.remove('active'));
         matchingLink.classList.add('active');
         loadArticle(currentHash);
-        return;
+        return true;
       }
     }
-    
-    // Default fallback to first active link
-    const defaultFile = document.querySelector('.nav-link.active').getAttribute('data-target');
-    loadArticle(defaultFile);
+    return false;
+  }
+
+  // Monitor backward/forward browser navigation actions
+  window.addEventListener('hashchange', routeByHash);
+
+  // Initialize route selection when app tree finishes bootstrapping
+  window.addEventListener('DOMContentLoaded', () => {
+    const successfullyRouted = routeByHash();
+    if (!successfullyRouted) {
+      const defaultLink = document.querySelector('.nav-link.active');
+      if (defaultLink) {
+        loadArticle(defaultLink.getAttribute('data-target'));
+      }
+    }
   });
 </script>
 

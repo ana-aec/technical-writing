@@ -1,0 +1,157 @@
+﻿<h1>DITA Feature Release Authoring Template</h1>
+
+<div class="doc-meta-grid">
+  <div class="meta-item">
+    <span class="meta-label">Category:</span>
+    <span class="meta-value">Technical Templates & Frameworks</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Cycle:</span>
+    <span class="meta-value">Standardization Initiative</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Deployment:</span>
+    <span class="meta-value">Enterprise-Wide</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Architecture:</span>
+    <span class="meta-value">DITA/Single-Source XML</span>
+  </div>
+</div>
+
+<details open class="project-intro-accordion">
+    <summary>
+        <h2>Project Overview</h2>
+        <span class="accordion-toggle-icon"></span>
+    </summary>
+    <div class="accordion-content">
+        <p>This framework was developed to resolve documentation inconsistencies across multiple acquired product lines. By enforcing a structured DITA-based matrix, I established a standardized intake process for technical writers, ensuring that all feature releases maintain strict adherence to Concept, Task, and Reference information types.</p>
+        <p>Beyond the technical configuration, I facilitated cross-functional coordination between Product Management and Engineering to define metadata requirements, significantly reducing downstream review cycles and enabling efficient multi-channel publishing.</p>
+        
+        <h3>CORE RESPONSIBILITIES</h3>
+        <ul>
+            <li>Information architecture design</li>
+            <li>Single-source template configuration (MadCap Flare)</li>
+            <li>Cross-functional stakeholder coordination</li>
+            <li>CSS class architecture and alert definition</li>
+            <li>Documentation intake standardization</li>
+        </ul>
+
+        <h3>TECHNOLOGY STACK</h3>
+        <p>MadCap Flare • DITA/XML • Custom CSS • Microsoft Word (SME integration)</p>
+
+        <div class="accordion-download-zone">
+            <p class="download-notice-text">
+                <b>Note:</b> A standalone Microsoft Word version of this structural matrix is maintained for subject matter experts (SMEs) contributing to documentation pipelines without direct access to the MadCap Flare environment.
+            </p>
+            <a href="#" id="inline-download-btn" class="btn-download" onclick="openDownloadModal(event)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Request Word Format Template (.docx)
+            </a>
+        </div>
+    </div>
+</details>
+
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #000000;font-size: 20pt;padding: 0px 0px 1px 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 1px;padding-left: 0px;margin: 12pt 0pt 0pt 0pt;margin-top: 12pt;margin-right: 0pt;margin-bottom: 0pt;margin-left: 0pt;page-break-before: always;"><a name="top"></a>Authoring Guidelines</h1>
+<span class="portfolio-callout"><b>Portfolio Note:</b> I designed this strict "delete-as-you-go" workflow to prevent content bloat. By forcing writers to remove unused sections, the resulting output remains concise and avoids the "wall of text" issue common in legacy documentation.</span>
+<table style="border-collapse: collapse; background-color: #ffdfcc; background-image: none; background-repeat: repeat-y; background-position-x: left; background-position-y: center; border-left-style: solid; border-left-color: #ff5f00; border-left-width: 3px; border-right-style: solid; border-right-color: #000000; border-right-width: 0px; border-top-style: solid; border-top-color: #000000; border-top-width: 0px; border-bottom-style: solid; border-bottom-color: #000000; border-bottom-width: 0px; margin-top: 10px; margin-bottom: 10px; border-spacing: 0px 0px; border-spacing-x: 0px; border-spacing-y: 0px; margin-left: auto; margin-right: auto;" class="TableStyle-WarningTable" cellspacing="0">
+    <col style="width: 65px;" class="TableStyle-WarningTable-Column-Column1" />
+    <col style="width: 625px;" class="TableStyle-WarningTable-Column-Column2" />
+    <tbody>
+        <tr class="TableStyle-WarningTable-Body-Body1" style="font-size: 11pt;margin: 2pt 0pt;margin-top: 2pt;margin-right: 0pt;margin-bottom: 2pt;margin-left: 0pt;text-align: left;text-indent: 0pt;font-weight: normal;line-height: normal;color: black;">
+            <td style="text-align: center;" class="TableStyle-WarningTable-BodyB-Column1-">
+                <img src="../assets/icons/warning.png" width="25px"/>
+            </td>
+            <td style="text-align: left;" class="TableStyle-WarningTable-BodyA-Column2-">Delete this callout and the <span class="Emphasis" style="color: #000000; font-style: italic;">entire</span> Template Matrix section before using this template. Also, follow the matrix and delete any section that does not apply to the type of article you're writing. The same applies to the snippets: <span class="Field" style="font-weight: bold;">breadcrumb</span>, <span class="Field" style="font-weight: bold;">navigation buttons</span>, and <span class="Field" style="font-weight: bold;">see also</span>.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p style="font-size: 11pt;margin: 10pt 0pt;text-align: left;color: black;">The table below categorizes the sections that should be included in a standalone article depending on two parameters: <strong>Feature Type</strong> (<em>New</em> or <em>Existing</em>) and <strong>DITA Article Type</strong> (<em>Concept</em>, <em>Reference</em>, and <em>Task</em>).</p>
+
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 12pt 0pt 6pt 0pt;">Template Matrix</h2>
+<span class="portfolio-callout"><b>Portfolio Note:</b> The biggest barrier to good documentation is ambiguity. I developed this matrix to provide non-technical stakeholders and product managers with a clear, standardized set of requirements, ensuring that every feature release receives consistent, high-quality technical coverage regardless of which writer is assigned the task.</span>
+<table style="border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; margin-left: 0; margin-right: auto;" class="TableStyle-Definitions" cellspacing="0">
+    <colgroup>
+        <col style="width: 140px;" />
+        <col style="width: 300px;" />
+        <col style="width: 300px;" />
+        <col style="width: 300px;" />
+    </colgroup>
+    <tbody>
+        <tr style="font-size: 11pt; font-weight: bold; background-color: #f8fafc; color: #01316b; text-align: center;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px;" rowspan="2">Feature Type</td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;" colspan="3">DITA Article Type</td>
+        </tr>
+        <tr style="font-size: 10pt; background-color: #f1f5f9; color: #334155;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px;"><b>Concept</b><br><span style="font-size: 8.5pt; color: #64748b;">Answers: "What is...?"</span></td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;"><b>Reference</b><br><span style="font-size: 8.5pt; color: #64748b;">Glossary, logs, appendix</span></td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;"><b>Task</b><br><span style="font-size: 8.5pt; color: #64748b;">Answers: "How do I...?"</span></td>
+        </tr>
+        <tr style="font-size: 11pt; text-align: left;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold;" rowspan="4">New</td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; background-color: #fafafa;" colspan="3">Overview</td>
+        </tr>
+        <tr style="font-size: 11pt;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; background-color: #fafafa;" colspan="3">Changes and Modifications</td>
+        </tr>
+        <tr style="font-size: 11pt;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; background-color: #fafafa;" colspan="3">Prerequisites</td>
+        </tr>
+        <tr style="font-size: 11pt;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px;">Understanding <span style="color: #2563eb;">&lt;Topic&gt;</span></td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;"><span style="color: #2563eb;">&lt;Reference Type&gt;</span> of <span style="color: #2563eb;">&lt;Topic&gt;</span></td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;">Standard Procedure</td>
+        </tr>
+        <tr style="font-size: 11pt; text-align: left;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold;" rowspan="3">Existing</td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; background-color: #fafafa;" colspan="3">Overview</td>
+        </tr>
+        <tr style="font-size: 11pt;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px; background-color: #f1f5f9;" colspan="2">&nbsp;</td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; background-color: #fafafa;">Prerequisites</td>
+        </tr>
+        <tr style="font-size: 11pt;">
+            <td style="border: 1px solid #cbd5e1; padding: 8px;">Understanding <span style="color: #2563eb;">&lt;Topic&gt;</span></td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;"><span style="color: #2563eb;">&lt;Reference Type&gt;</span> of <span style="color: #2563eb;">&lt;Topic&gt;</span></td>
+            <td style="border: 1px solid #cbd5e1; padding: 8px;">Standard Procedure</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #000000;font-size: 20pt;padding: 0px 0px 1px 0px;margin: 12pt 0pt 0pt 0pt;page-break-before: always;">Overview</h1>
+<p style="font-size: 11pt; margin: 4pt 0pt;"><span class="Field" style="font-weight: bold; color: #047857;">Available in Version: [X.X.X]</span></p>
+<p style="font-size: 11pt; margin: 6pt 0pt; color: black;">This section should provide information on the topic and the article itself. Information on the topic includes any background information such as purpose/use of the feature, users that can benefit from the feature, and, if applicable, its place in the workflow. On the other hand, information on what the article is about includes the purpose of the documentation as well as its outline.</p>
+<p style="font-size: 11pt; margin: 6pt 0pt; color: black;">If it's an article for a new feature, the version starting from which the feature is available should be stated in the <em>Available in Version</em> line at the top of this section. Otherwise, delete that line.</p>
+
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;font-size: 20pt;padding: 0px 0px 1px 0px;margin: 12pt 0pt 0pt 0pt;">Changes and Modifications</h1>
+<p style="font-size: 11pt; margin: 6pt 0pt; color: black;">As indicated in the matrix above, this section is only applicable to articles about new features. The subheadings below are examples of what this section could contain. Delete and/or add section(s) as necessary.</p>
+
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">Workflow</h2>
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">UI</h2>
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">Database</h2>
+
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;font-size: 20pt;padding: 0px 0px 1px 0px;margin: 12pt 0pt 0pt 0pt;">Prerequisites</h1>
+<p style="font-size: 11pt; margin: 6pt 0pt; color: black;">Any procedure or setup that must be completed to be able to use the feature, whether new or existing, should be included in this section. The subheadings below are examples of what this section could contain. Delete and/or add section(s) as necessary.</p>
+
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">Upgrading the Software</h2>
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">System Setup</h2>
+<h2 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #01316b;font-size: 17pt;margin: 10pt 0pt 0pt 0pt;">Access Permissions</h2>
+
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;font-size: 20pt;padding: 0px 0px 1px 0px;margin: 12pt 0pt 0pt 0pt;">Understanding <span style="color: #2563eb;">&lt;Topic&gt;</span></h1>
+<p style="font-size: 11pt; margin: 4pt 0pt; color: #475569;"><i>For example: <b>Understanding EDI</b></i></p>
+
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;font-size: 20pt;padding: 0px 0px 1px 0px;margin: 12pt 0pt 0pt 0pt;"><span style="color: #2563eb;">&lt;Reference Type&gt;</span> of <span style="color: #2563eb;">&lt;Topic&gt;</span></h1>
+<p style="font-size: 11pt; margin: 4pt 0pt; color: #475569;"><i>For example: <b>Glossary of EDI Terms</b></i></p>
+
+<h1 style="font-family: &quot;Franklin Gothic Medium&quot;, Arial, sans-serif;font-weight: normal;text-align: left;line-height: 1.45;color: #000000;border-bottom: 1px solid #000000;border-bottom-style: solid;border-bottom-width: 1px;font-size: 20pt;padding: 0px 0px 1px 0px;margin: 12pt 0pt 0pt 0pt;">Standard Procedure</h1>
+<p style="font-size: 11pt; margin: 6pt 0pt; color: black;">Follow the steps below to <span style="color: #2563eb;">&lt;goal_or_topic&gt;</span>: <span class="Emphasis" style="font-style: italic;">(or similar wording)</span></p>
+
+<ol style="font-size: 11pt; margin: 6pt 0pt; padding-left: 24px; color: black;">
+    <li style="margin-bottom: 4px;">Step 1 documentation entry placeholder.</li>
+    <li style="margin-bottom: 4px;">Step 2 documentation entry placeholder.</li>
+</ol>
