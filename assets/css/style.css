@@ -1059,32 +1059,32 @@ footer {
   margin-bottom: 0.75rem;   /* Tighter spacing */
 }
 
+/* The Download Button Style */
 .btn-download {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0;
-  background-color: transparent !important; /* Force no background */
-  border: none !important;
-  color: #475569;      /* Slate-600 */
-  font-weight: 500;
-  font-size: 0.85rem;
+  gap: 6px; 
+  padding: 5px 10px; /* Reduced vertical and horizontal padding */
+  font-size: 0.85rem; /* Smaller font */
+  background-color: #f1f5f9; /* Soft grey background */
+  color: #334155 !important; /* Dark text for contrast */
+  border: 1px solid #cbd5e1; /* Subtle border */
+  border-radius: 4px;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  width: fit-content; /* Keeps the button from stretching */
 }
 
 .btn-download:hover {
-  background-color: transparent !important; /* Ensure no hover background */
-  color: #0f172a;      /* Darken just the text/icon slightly */
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
 }
 
+/* Tighten the SVG icon spacing */
 .btn-download svg {
   width: 14px;
   height: 14px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-  transition: transform 0.2s ease;
+  stroke-width: 2.5;
 }
 
 /* Subtle micro-interaction */
