@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Troubleshooting Routing Issues</title>
+</head>
+<body>
+
+    <h1>Troubleshooting Routing Issues</h1>
+
+    <p>ACP relies on the Study’s Design Inputs (Background Geometry and Electrical Model) to analyze the site for available space and supportable elements, such as overhead floors, roofs, and walls. Setting up the ACP-Import view allows you to control which elements are visible and the scope of your Revit model imported into your ACP study.</p>
+
+    <p>Revit modelling is flexible, allowing you to structure models according to your own standards and project requirements. This same flexibility can introduce variations across your own model and the linked files that make up the bulk of your Background Geometry. These variations can impact your Design Inputs and lead to the following routing issues in ACP:</p>
+
+    <ul>
+        <li><strong>Unrouted Runs</strong> - ACP is unable to place some conduit runs specified in your Input Schedules.</li>
+        <li><strong>Odd Routing</strong> - Conduit routes take inefficient or unusual paths.</li>
+        <li><strong>Solution Failure</strong> - ACP fails to generate solutions altogether.</li>
+    </ul>
+
+    <p>These issues may be linked to the Background Geometry and/or Electrical Model, as well as the Scope in the ACP-Import view which affects both Design Inputs. For a more manageable and efficient approach in troubleshooting, this series of articles is structured around reviewing each Design Input separately. Each article covers the specific diagnostic and resolution steps, as well as the tools for resolving the associated issues for the corresponding Design Input.</p>
+
+    <div class="pro-tip" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p><strong>PRO TIP</strong>: Identify and resolve common Routing issues and causes in your Revit model before re-importing Design Inputs into your study.</p>
+        <ul>
+            <li>A few iterations of solution generation using different versions of Design Inputs may be required to resolve routing issues caused by poor or incomplete Revit data.</li>
+            <li>Familiarity with each Design Input issue allows you to set up your ACP-Import view more effectively, reducing routing issues and allowing you to achieve the most favorable solution for your project more quickly.</li>
+        </ul>
+    </div>
+
+    <div class="support-note" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p>For additional help in troubleshooting and resolving routing issues, please reach out to Customer Support via support@augmenta.ai.</p>
+    </div>
+
+    <hr />
+
+    <h2>Troubleshooting guide</h2>
+
+    <p>Multiple factors in your ACP-Import view may contribute to the same routing issues during solution generation. You can keep the troubleshooting process more manageable by reviewing Design Inputs separately in the order specified below.</p>
+
+    <ol>
+        <li>
+            <strong>Scope</strong>
+            <p>The Scope in the ACP-Import view affects both Electrical Model and Background Geometry. While Scope issues are typically the simplest to troubleshoot and resolve, they have the largest impact. Even if all issues are resolved in both models, routing issues will persist if the Scope is set incorrectly.</p>
+        </li>
+        <li>
+            <strong>Electrical model</strong>
+            <p>Identifies the location, size, and other properties of the enabled Electrical Equipment and Electrical Fixtures which ACP will use as sources and/or destinations for the conduit routing, as well as various elements used for constraining routes.</p>
+        </li>
+        <li>
+            <strong>Background geometry</strong>
+            <p>Includes all elements in your Revit model (linked or otherwise) which aren’t imported into ACP as part of the Electrical Model. It provides ACP with critical spatial context, including available space for conduit racks as well as obstructions such as walls, beams, and other trade elements. It also identifies supportable elements in the model, enabling ACP to generate conduit racks which are both clash-free and properly supported.</p>
+        </li>
+    </ol>
+
+    <p>The table below outlines Scope, Electrical model, and Background Geometry issues to review and the routing issues they may cause in your solutions. Each one is linked to troubleshooting instructions specific for each issue.</p>
+
+    <div class="warning-note" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p><strong>DO NOT skip the last few sections of this article.</strong></p>
+        <p>The next few sections contain helpful information about the troubleshooting process and some ACP and Revit tools you can use.</p>
+    </div>
+
+    <table border="1" cellpadding="5" cellspacing="0" summary="Scope, Electrical model, and Background Geometry issues mapped to routing issues.">
+        <thead>
+            <tr>
+                <th>Design Input</th>
+                <th>Issue</th>
+                <th>Failed Solution/Other</th>
+                <th>Unrouted Runs</th>
+                <th>Odd Routing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Scope</td>
+                <td><a href="viewer.html?doc=scope-issues#scope-too-large">Scope too large</a></td>
+                <td>✘</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="viewer.html?doc=scope-issues#scope-too-small">Scope too small</a></td>
+                <td>✘</td>
+                <td>✘</td>
+                <td>✘</td>
+            </tr>
+            <tr>
+                <td rowspan="4">Electrical Model</td>
+                <td><a href="viewer.html?doc=troubleshooting-routing-issues#geometry-in-families-blocking-routing">Geometry in families blocking routing</a></td>
+                <td></td>
+                <td>✘</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="viewer.html?doc=troubleshooting-routing-issues#overfilled-electrical-equipment">Overfilled Electrical Equipment</a></td>
+                <td></td>
+                <td>✘</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="viewer.html?doc=troubleshooting-routing-issues#incorrect-electrical-element-classification">Incorrect Electrical Element classification</a></td>
+                <td>✘</td>
+                <td>✘</td>
+                <td>✘</td>
+            </tr>
+            <tr>
+                <td><a href="viewer.html?doc=troubleshooting-routing-issues#element-placement-issues">Element placement issues</a></td>
+                <td></td>
+                <td>✘</td>
+                <td>✘</td>
+            </tr>
+            <tr>
+                <td rowspan="4">Background Geometry</td>
+                <td><a href="viewer.html?doc=background-geometry-issues#excessive-geometry">Excessive Geometry</a></td>
+                <td>✘</td>
+                <td>✘</td>
+                <td>✘</td>
+            </tr>
+            <tr>
+                <td><a href="viewer.html?doc=background-geometry-issues#incorrect-wall-function-setting">Incorrect wall function setting</a></td>
+                <td></td>
+                <td>✘</td>
+                <td>✘</td>
+            </tr>
+            <tr>
+                <td><a href="viewer.html?doc=background-geometry-issues#supportability-issues">Supportability issues</a></td>
+                <td></td>
+                <td>✘</td>
+                <td>✘</td>
+            </tr>
+            <tr>
+                <td><a href="viewer.html?doc=background-geometry-issues#unexpected-floor-penetrations">Unexpected floor penetrations</a></td>
+                <td></td>
+                <td></td>
+                <td>✘</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr />
+
+    <h2>Reviewing solutions in ACP</h2>
+
+    <p>The first few solutions generated in ACP may contain routing issues, especially if the Design Inputs were imported into the study without properly reviewing your Revit model and the ACP-Import view first. Reviewing solutions in the 3D Solution Viewer in ACP can help you determine what adjustments are needed.</p>
+
+    <p>The tools in the 3D Solution Viewer make Troubleshooting Unrouted Runs and Tracking Odd Routing in the generated solutions easier.</p>
+
+    <h3>Troubleshooting Unrouted Runs</h3>
+
+    <p>One of the most helpful tools for reviewing routing issues in the 3D Solution Viewer is the <strong>Unrouted Runs</strong> tab within the Placement Considerations panel. This tool lists all of the Source-Destination pairs which ACP wasn’t able to route.</p>
+
+    <p>Selecting the pair creates the following visualizations in the 3D Solution Viewer:</p>
+
+    <ul>
+        <li>The Source and Destination are highlighted as green spheres.</li>
+        <li>A straight line is drawn between the Source and Destination.</li>
+        <li>All the areas which ACP explored to find a route, known as Explored Space, are highlighted in blue.</li>
+    </ul>
+
+    <p>The Explored Space originates from both the Source and Destination, working toward a meeting point. Reviewing the area around the Explored Space helps in locating and identifying obstructions or other issues preventing routing. This allows you to narrow down the adjustments needed in the ACP-Import View such as clearing possible obstructions, and resolving scope issues, supportability problems, or sizing discrepancies.</p>
+
+    <div class="pro-tip" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p><strong>PRO TIP:</strong></p>
+        <p>Some unrouted runs are identified within 15 to 20 minutes of generation starting and will appear in the 3D Solution Viewer before generation is complete. Reviewing them early can save hours, particularly when the fix likely triggers the need for updated Design Inputs, and a new generation.</p>
+        <p><strong>Follow the steps below to view unrouteable raceways identified during Processing:</strong></p>
+        <ol>
+            <li>In the Study list, verify that the <strong>Status</strong> of your study has changed from <strong>Processing</strong> to <strong>Generating</strong>.</li>
+            <li>Hover over your study’s corresponding <strong>Actions</strong> button, then select <strong>View Model</strong> from the dropdown. (This opens the 3D Solutions Viewer displaying your study but <strong>No Solution</strong> selected. Solutions will appear in the solution list as they are generated. However, selecting a solution is not necessary for this process.)</li>
+            <li>Click the <strong>Placement Considerations</strong> button. (The Placement Considerations panel opens to the <strong>Unrouted Runs</strong> tab by default.)</li>
+        </ol>
+        <p>Unrouted Runs identified during processing are typically caused by Excessive Geometry blocking the routing path, or by Element Placement Issues such as a source or destination being embedded inside other geometry. Once you resolve these issues, you can proceed by doing either of the following:</p>
+        <ul>
+            <li>Terminate solution generation for the current study, then re-import the Design Inputs before generating solutions again. (Keeps the project cleaner with fewer studies.)</li>
+            <li>Create a separate study with the updated Design Inputs, then generate solutions from the new study. (Track how each Design Input update affects solution generation for team visibility.)</li>
+        </ul>
+        <p>This approach helps reduce the likelihood that Unrouted Runs identified early in the process will occur in the generated solutions. However, ACP may still find more Unrouted Runs while in the Generating stage.</p>
+    </div>
+
+    <h3>Reviewing Odd Routing</h3>
+
+    <p>While reviewing the generated solutions, you may notice some conduit runs take inefficient or unusual paths, or conduits may run across each other. This may be caused by various issues in the study’s Electrical model and/or Background geometry. Reviewing the geometry around areas where odd routing occurs may help in narrowing down the cause.</p>
+
+    <p>The following tools may be helpful in reviewing solutions and tracking odd routing in the 3D Solution Viewer.</p>
+
+    <h4>View Controls</h4>
+
+    <p>View Controls allow you to configure how different elements of the model are displayed in the 3D Solution Viewer. When reviewing odd routing, adjusting the view using View Controls makes it easier to understand how conduit runs interact with surrounding geometry as well as identify their categories. This helps to pinpoint which categories in the model may be affecting the routing.</p>
+
+    <p>Using the View Controls you can:</p>
+
+    <ul>
+        <li>Show or hide categories to get a better view of the area.</li>
+        <li>Customize how categories are displayed so it’s easy to identify the categories which may be influencing the routing, as well as where conduit conduits pass through walls. For example, conduit runs may take certain routes to go around elements like Ductwork and Piping or route above elements like ceilings.</li>
+        <li>Control section cut behavior of each category</li>
+    </ul>
+
+    <h4>Section Planes</h4>
+
+    <p>Section planes are used to create a cut-through view of the model, allowing you to View the model cross-section at a specific location. This view is particularly useful when reviewing odd routing, as it shows how a conduit run interacts with surrounding elements. By using section planes, you can check whether other elements are physically obstructing the path, which may be causing the unusual routing.</p>
+
+    <h4>Bookmarks</h4>
+
+    <p>Bookmarks let you save and quickly access specific locations in the 3D Solution Viewer. The camera angle is also preserved, making it easy to return to the exact view you were reviewing. They are especially helpful for tracking areas where odd routing occurs in the solution. When collaborating with others, bookmarks can also be used to direct teammates to the specific routing issues you want them to review.</p>
+
+    <h4>Compare</h4>
+
+    <p>Comparing solutions allows you to review a Primary Solution and a Secondary Solution simultaneously. In Compare Solutions mode, all features of the 3D Solution Viewer may be used so you can further analyze the two solutions.</p>
+
+    <p>For reviewing odd routing, you can compare solutions to determine whether odd routing is consistent across them. This helps guide your next steps. If the odd routing is consistent, it may indicate issues in the Design Inputs, and resolving those issues may also resolve the routing.</p>
+
+    <div class="pro-tip" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p>Revit-native tools may also be used to review odd routing <strong>after</strong> the solution is exported into your Revit project.</p>
+    </div>
+
+    <hr />
+
+    <h2>Reviewing the Revit Model</h2>
+
+    <p>Routing issues such as unrouted runs and odd routing, or ACP failing to generate solutions altogether, are typically caused by issues in your Revit model from where the study’s Scope, Background geometry, or Electrical model are imported.</p>
+
+    <p>To resolve these routing issues, your Revit model should be properly configured before importing it into a study to generate solutions. The Revit-native tools and processes below are helpful in making the troubleshooting process more efficient.</p>
+
+    <h3>Utilizing Schedules for troubleshooting</h3>
+
+    <p>Revit Schedules list the elements in your model and display their properties based on selected parameters. They automatically update as changes are made to the model. Because of this, schedules are incredibly helpful for tracking and reviewing categories used in ACP, particularly Electrical Fixtures and Electrical Equipment. These categories serve as Sources and Destinations within ACP. Routing issues will likely occur if Electrical Fixtures and Electrical Equipment are not properly set up.</p>
+
+    <div class="pro-tip" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p><strong>PRO TIP</strong>:</p>
+        <p>To make troubleshooting for ACP easier, include the following fields in the schedules:</p>
+        <ul>
+            <li>Family and/or Type</li>
+            <li>Panel Name / ACP_E_Fixture_ID</li>
+            <li>ACP_C_Enabled</li>
+            <li>ACP_E_Target_Bottom_Face</li>
+            <li>Count</li>
+        </ul>
+    </div>
+
+    <p>The Electrical Fixtures and Electrical Equipment schedules can be configured to show the specific data you need for setting up the ACP-Import view. These schedules can also be used to navigate and review your model, allowing you to perform various troubleshooting processes such as:</p>
+
+    <ul>
+        <li>Finding duplicated elements</li>
+        <li>Finding miscategorized elements</li>
+        <li>Selecting elements from the Schedule view</li>
+    </ul>
+
+    <h4>Finding duplicated elements</h4>
+
+    <p>In Revit, electrical elements can appear multiple times or have the same name. However, as these elements are specifically used as Sources and Destinations in ACP, each one should be unique to avoid routing issues.</p>
+
+    <p>To spot any duplicate or elements with the same name in the schedule, it must be sorted by the element’s unique identifier (Panel Name / ACP_E_Fixture_ID). Here are two ways you can spot these elements in the schedule:</p>
+
+    <ul>
+        <li>Find where the same name occurs in consecutive rows in the Schedule.</li>
+        <li>Or Add the <strong>Count</strong> field to the Schedule and turn off the <strong>Itemize every instance</strong> setting for Sorting/Grouping. This displays any duplicated element with a Count greater than 1.</li>
+    </ul>
+
+    <h4>Finding miscategorized elements</h4>
+
+    <p>It’s important to use the correct category in your Revit model as ACP treats electrical elements differently depending on whether they are categorized as Electrical Equipment or Electrical Fixtures. In practice, a different category may sometimes be accidentally used instead of the intended category when placing elements in the model. Because the element is a different category, it will not appear in the expected Schedule.</p>
+
+    <h4>Selecting elements from the Schedule view</h4>
+
+    <p>It may be difficult to manually find specific elements in Revit, especially in large models. From the schedule view, you can easily find and select a specific element by following the steps below:</p>
+
+    <ol>
+        <li>Open the Revit Model view where you’d like to view the element.</li>
+        <li>Open the Schedule containing the element.</li>
+        <li>Select the element’s row.</li>
+        <li>In the Modify Schedule/Quantities tab, click the <strong>Highlight in Model</strong> tool.</li>
+        <li>In the Show Element(s) In View pop-up dialog box, click <strong>Close</strong> to show the element in the view you opened in step 1. (Or click <strong>Show</strong> to find the element in other views.)</li>
+    </ol>
+
+    <div class="pro-tip" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p><strong>PRO TIP:</strong></p>
+        <p>To view the Schedule alongside the view(s) where you’ll review the elements you select from the schedule, open the <strong>View</strong> tab in the ribbon then click the <strong>Tile Views</strong> tool.</p>
+        <p>Ensure that only the views you’d like to review side-by-side are open as this tool tiles all open views.</p>
+    </div>
+
+    <h3>Preparing the ACP-Import view</h3>
+
+    <p>Once you’ve resolved the issues in your Revit model, the next step is to properly set up the ACP-Import view. This view determines the scope of your Revit model which gets imported as the Background geometry and Electrical model into your study.</p>
+
+    <div class="pro-tip" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+        <p><strong>PRO TIP:</strong> To freely test changes in the ACP-Import view while preserving the original, you may do the following:</p>
+        <ul>
+            <li>Create a duplicate of the view and use it to test different settings. (Make sure to copy all relevant settings from the duplicate to the original ACP-Import view before re-importing Design Inputs.)</li>
+            <li>Use temporary view settings.</li>
+        </ul>
+    </div>
+
+    <p>Below are some helpful tools you can use to review and prepare the ACP-Import view.</p>
+
+    <h4>Selection Box</h4>
+
+    <p>The <strong>Selection Box</strong> (Shortcut = BX) tool crops the view so only the selected elements are shown.</p>
+
+</body>
+</html>

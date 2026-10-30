@@ -1,0 +1,89 @@
+<h1>Building the Augmenta Knowledge Base</h1>
+<div class="doc-meta-grid">
+  <div class="meta-item">
+    <span class="meta-label">Hosting Platform:</span>
+    <span class="meta-value">Document360</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">SME Partner:</span>
+    <span class="meta-value">Training & Documentation Manager</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Target Domain:</span>
+    <span class="meta-value">AEC: MEP</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Lifecycle Scope:</span>
+    <span class="meta-value">Setup to Maintenance</span>
+  </div>
+</div>
+
+  <!-- Overview Accordion -->
+<details open class="project-intro-accordion">
+    <summary>
+      <h2>Project Overview</h2>
+      <span class="accordion-toggle-icon"></span>
+    </summary>
+
+    <div class="accordion-content">
+      <p>
+        Working closely with Augmenta's <b>Training and Documentation Manager</b>, I turned fragmented internal artifacts into a structured, searchable <b>Document360</b> publication. The resulting portal serves as the primary onboarding and operational guide for engineers, BIM managers, and contractors using AI-driven electrical routing tools.
+      </p>
+
+      <h3>CORE RESPONSIBILITIES</h3>
+      <ul>
+        <li>Documentation portal architecture and taxonomy design</li>
+        <li>Autonomous software testing and workflow validation</li>
+        <li>Cross-functional alignment with training leadership</li>
+        <li>Content authoring, single-sourcing, and style standard enforcement</li>
+        <li>Lifecycle management to steady-state maintenance</li>
+      </ul>
+
+      <h3>TECHNOLOGY STACK</h3>
+      <p>Revit • Autodesk Docs • Augmenta Construction Platform • HTML • CSS • Document360 • SnagIt</p>
+    </div>
+</details>
+
+
+<main>
+    <h2 class="section-title">The Starting Point</h2>
+    <p>
+      When the project initiated, product knowledge was scattered across raw demonstration recordings, unformatted notes, and early feature slides. There was no centralized source of truth for external users or internal teams.
+    </p>
+
+    <ul>
+      <li><strong>Legacy Assets:</strong> Assembled fragmented documentation scattered across raw video walkthroughs and feature summaries.</li>
+      <li><strong>Software Access:</strong> Explored live builds of the generative design tool to test and map out complex user paths directly.</li>
+      <li><strong>Developer Bandwidth Constraint:</strong> Direct developer access was unavailable. Information gathering relied on independent app testing, existing annotation guides, and targeted review cycles with the Training and Documentation Manager.</li>
+    </ul>
+
+    <span class="portfolio-callout">
+      <b>Operational Strategy:</b> By taking an exploratory, QA-first approach to the software, the documentation pipeline moved forward without pulling core engineering bandwidth away from product development.
+    </span>
+
+    <h2 class="section-title">Platform & Infrastructure Setup</h2>
+    <p>
+      To support long-term scalability and rapid searchability, <strong>Document360</strong> was configured as the central knowledge hub.
+    </p>
+    <ul>
+      <li>Engineered a clear category structure tailored to generative electrical, plumbing, and mechanical BIM workflows.</li>
+      <li>Configured article versioning and category permissions to match ongoing product deployment cycles.</li>
+      <li>Established reusable content snippets and template rules to keep future authoring standardized.</li>
+    </ul>
+
+    <h2 class="section-title">Execution & Maintenance State</h2>
+    <p>
+      Through systematic sprint iterations, raw system findings were turned into publish-ready guides, feature walkthroughs, and diagnostic steps. Today, the knowledge base operates at a steady-state maintenance level with active updates tied to continuous product releases.
+    </p>
+
+</main>
+
+  <!-- Navigation Footer -->
+<footer class="doc-nav-footer">
+    <div>
+      <span class="meta-label">Page 1 of 4 • Augmenta Flagship Series</span>
+    </div>
+    <a href="viewer.html#augmenta-ia-taxonomy.html" class="next-page-btn">
+      Next: Mapping KB Structure →
+    </a>
+</footer>

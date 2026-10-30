@@ -724,24 +724,84 @@ footer {
   box-shadow: 0 0 0 3px rgba(11, 92, 171, 0.15);
 }
 
-/* THE 6-CARD GRID ARCHITECTURE */
-.portal-grid {
+/* ASYMMETRIC GRID ARCHITECTURE WITH FEATURED FLAGSHIP CARD */
+.portal-grid.asymmetric-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1.2fr 1fr 1fr;
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .portal-card {
-  background: white;
+  background: #ffffff;
   border: 1px solid #dce1e7;
   border-radius: 12px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
-  flex: 1 1 calc(33.333% - 1.5rem);
   min-height: 200px;
+  position: relative;
+  overflow: visible !important;
+  z-index: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* FEATURED FLAGSHIP CARD (DOUBLE HEIGHT & CENTERED HEADER) */
+.portal-card.flagship-card {
+  grid-row: span 2;
+  border: 1.5px solid #DDB35E;
+  background-color: #FAF5EA; /* Soft, solid warm gold tint */
+  box-shadow: 0 6px 16px rgba(221, 179, 94, 0.12);
+  justify-content: flex-start;
+}
+
+/* Centers logo on top, title below */
+.portal-card.flagship-card .portal-card-header {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Clickable Logo Container */
+.portal-card.flagship-card .flagship-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.portal-card.flagship-card .flagship-logo-link:hover {
+  opacity: 0.85;
+}
+
+/* Constrains horizontal logo dimensions */
+.portal-card.flagship-card .card-icon {
+  width: auto;
+  max-width: 180px;
+  height: auto;
+  max-height: 36px;
+  object-fit: contain;
+}
+
+/* External Link Indicator Icon */
+.portal-card.flagship-card .external-link-icon {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #B88B32; /* Slightly darker gold for crisp contrast */
+  line-height: 1;
+}
+
+.flagship-summary {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #e2e8f0;
 }
 
 .portal-card-header {
@@ -766,14 +826,6 @@ footer {
   margin: 0;
 }
 
-/* 1. Ensure the parent card doesn't clip children */
-.portal-card {
-  position: relative; /* Context foundation */
-  overflow: visible !important; /* Forces grid tracks to allow spill-out */
-  z-index: 1;
-  transition: transform 0.2s ease, z-index 0s;
-}
-
 .no-wrap-context {
   white-space: nowrap;
 }
@@ -791,7 +843,7 @@ footer {
   color: #2563eb;
 }
 
-/* This box lives directly on the document body, immune to card overflow constraints */
+/* Global Floating Tooltip */
 .global-floating-tooltip {
   position: absolute;
   background-color: #1e293b;
@@ -802,11 +854,11 @@ footer {
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1.4;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
-  z-index: 99999; /* Forces it over every layout layer on the page */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  z-index: 99999;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-50%); /* Keeps arrow pinpoint centered */
+  transform: translateX(-50%);
   transition: opacity 0.15s ease;
   pointer-events: none;
 }
@@ -815,12 +867,8 @@ footer {
   opacity: 1;
   visibility: visible;
 }
-/* Prevents the last word of the title and the info icon from separating */
-.no-wrap-context {
-  white-space: nowrap;
-}
 
-/* INTERIOR CARD CONTENT LINKS */
+/* Interior Card Content Links */
 .sample-links {
   list-style: none;
   padding: 0;
@@ -847,6 +895,28 @@ footer {
 .sample-links a:hover {
   color: #0b5cab;
   text-decoration: underline;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .portal-grid.asymmetric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .portal-card.flagship-card {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .portal-grid.asymmetric-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portal-card.flagship-card {
+    grid-column: span 1;
+  }
 }
 
 /* ==========================================================================
