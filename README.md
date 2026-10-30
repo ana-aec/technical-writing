@@ -1,14 +1,14 @@
-# AECTechDocs.com
+# aectechdocs.com
 
 > **Portfolio website of Ana Cabrera — Technical Writer for AEC Software Products & Beyond**
 >
 > *🚧 Status: Work in Progress 🚧*
 
-Welcome to the repository for [**AECTechDocs.com**](https://aectechdocs.com). While **this website is specifically dedicated to my technical writing portfolio for Architecture, Engineering, and Construction (AEC) software products**, my broader background spans technical writing and documentation engineering across multiple software and technology industries.
+Welcome to the repository for [**aectechdocs.com**](https://aectechdocs.com). While **this website is specifically dedicated to my technical writing portfolio for Architecture, Engineering, and Construction (AEC) software products**, my broader background spans technical writing and documentation engineering across multiple software and technology industries.
 
 This site showcases specialized technical documentation, API guides, developer resources, case studies, and user guides tailored to the AEC software ecosystem and enterprise systems.
 
-## 👤 About Ana Cabrera
+## 👤 About Me
 
 I am a **Technical Writer** specializing in developer-facing and enterprise software products. With a background as a **Licensed Electronics and Communications Engineer (ECE)**, I bridge the gap between complex software engineering and domain-specific workflows.
 
